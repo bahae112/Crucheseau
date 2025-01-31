@@ -1,0 +1,50 @@
+Modélisation
+Espace d’états :
+décrit par l’ensemble des paires ordonnées (x,y) tq :
+x : quantité d’eau dans la cruche de 4 litres 
+y : quantité d’eau dans celle de 3 litres. x  {0,1,2,3,4} et y  {0,1,2,3}
+État initial :
+cruches vides  (x,y) = (0,0)
+État but :
+(x,y) = (2,n)
+n : quelconque
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++le but du jeu  a extraire d'apres la question 
+On dispose de deux cruches, l’une de 4 litres, l’autre de 
+3 litres et d’une pompe pour remplir les cruches d’eau. 
+Les cruches ne possèdent aucun repère de mesure.
+Comment obtenir exactement 2 litres d’eau dans la 
+cruche de 4 litres ?
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Règles :
+R1 : remplir cruche-4l
+R2 : remplir cruche-3l
+R3 : vider cruche-4l
+R4 : vider cruche-3l
+R5 : verser cruche-4l dans cruche-3l
+R6 : verser cruche-3l dans cruche-4l.
+Stratégie :
+Recherche systématique : recherche en largeur
+- On construit un arbre 
+Les arbres de recherche sont utilisés pour sauvegarder en mémoire 
+les différentes étapes d'une recherche
+- racine de l’arbre : état initial
+- descendance de la racine : appliquer les règles appropriées à l’état 
+initial (R1 et R2) puis aux successeurs jusqu’à atteindre l’état but 
+(où la cruche 4l contient exactement 2l)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ recherche en largeur
+pour la memorisation en procedant par la strategie de recherche en largeur : utilisation d'une file
+Rq.
+Pour la recherche en largeur, les nœuds générés sont mémorisés dans 
+une file (on ajoute les successeurs à la fin de la liste des nœuds à 
+explorer)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++= Recherche en profondeur (systématique) :
+suivre une branche de l’arbre :
+- si on atteint le but final, on retourne la solution 
+- sinon, quand on atteint une profondeur donnée, on revient en 
+arrière pour explorer d’autres branches (backtracking)
+Rq. pour la memorisation en procedant par la strategie de recherche en profondeur on utilise une pile 
+Les nœuds générés sont mémorisés dans une pile 
+(on ajoute les successeurs au début de la liste des nœuds à explorer)  
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
